@@ -6,6 +6,22 @@
 </p>
 
 <ul> 
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN301"> 
+	HLIN301 - Algorithmique et structures de données linéaires </a> </li>
+	<li>  </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN302"> 
+	HLIN302 - Programmation Impérative Avancée </a> </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN303"> 
+	HLIN303 - Système d'exploitation </a> </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN304"> 
+	HLIN304 - Système d'information et base de données </a> </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/CultureG"> 
+	HLSE301 - Culture Général (Concept et outils de base en informatique) </a> </li>
+</ul>
+
+---
+
+<ul> 
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN401"> 
 	HLIN401 - Algorithme et complexité (c++) </a> </li>
 	<li>  </li>
