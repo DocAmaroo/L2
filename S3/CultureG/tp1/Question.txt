@@ -1,0 +1,81 @@
+﻿Essayez maintenant de répondre aux questions suivantes en utilisant différentes options des 
+animations:
+
+
+
+Remarquez la casse (majuscule ou minuscule) des différentes balises (head et body, par
+exemple): cette casse a-t-elle une importance?
+ 
+Oui elle permet de fermer le head ou le body
+
+
+
+Où retrouve-t-on ce qui est inscrit entre les marqueurs < title > et < / title >?
+
+Le titre de la page en haut du navigateur
+
+
+
+Quel est l'effet du marqueur < br >?
+
+On l'utilise pour allé a la ligne
+
+
+
+Que trouve-t-on à l'intérieur du marqueur < !.... >?
+Des commentaires
+
+
+
+A quoi correspond ``& copy;''?
+
+Au petit C entouré
+
+
+
+Enlever les marqueurs fermants < / html >, < / body> et < / head>): quel est l'effet de cette suppression sur l'affichage par le navigateur ?
+
+
+Penser à copier-coller les lignes supprimées dans un autre fichier, afin de pouvoir les remettre lorsque vous aurez terminé.
+
+
+Enlever les marqueurs ouvrants correspondants aux marqueurs fermants précédents: cela change-t-il l'affichage de la page sur le navigateur? 
+
+Rien
+
+
+
+Enlever à présent le marqueur < / h2 >: comment l'affichage est-il modifié? 
+Jusqu'où s'étend cette modification?
+
+Tous passe en format h2, jusqu'a la création d'une autre balise <h>
+
+
+
+Quelle structure correspond le marqueur < p >? Que remarquez-vous pour cette balise ?
+
+Il correspond au paragraphe
+
+, elle fait automatique un saut de ligne et un alinéa
+
+Modifiez avec la souris la largeur de la fenêtre du navigateur: que constatez-vous ?
+
+Le texte s'adapte a la fenêtre
+
+
+
+Quelle est, par défaut, la largeur du tableau? Que se passe-t-il si on impose une largeur de 120%
+ ou de 25%?
+
+La taille des caractères augmente ou réduit la taille de la case et coupe une partie de l'information si c'est trop petit
+
+.
+
+Quelles sont les deux caractéristiques du contenu des cases th?
+
+
+ 
+
+Que se passe-t-il si on enlève les caractères &nbsp; dans la première case du tableau? À quoi
+correspondent-ils?
+Y'a plus de titre

@@ -1,0 +1,54 @@
+/* CANTA Thomas/ page6.css*/
+
+header{ background-image: url(../background/page6.jpg); }
+
+
+.music > p{
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+audio, video{
+	padding-top: 1%;
+	padding-bottom: 2%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+
+}
+
+video{
+	height: 300px;
+}
+
+table{
+	font-size: 80%;
+	margin-left: 3%;
+	margin-right: 3%;
+}
+th{
+	border: solid 2px black;
+}
+
+.zoom:hover{
+	transform: scale(1.2);
+	background-color: black;
+	transition: all 500ms ease;
+}
+
+td{	
+	padding: 10px 10px 10px 10px;
+	border: solid 2px black;
+}
+
+.graph > img{
+
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 30%;
+}
+
+.graph > img:hover{
+	cursor: zoom-in;
+}

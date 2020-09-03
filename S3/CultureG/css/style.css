@@ -1,0 +1,192 @@
+/* CANTA Thomas/ style.css*/
+
+*{
+	margin: 0%;
+}
+
+/*____________ body ____________*/
+body{
+
+	background: #232323;
+
+	font-family: consolas,sans-serif;
+	color: #EEEEEE;
+
+	
+}
+/* end body _________________________*/
+/*###################################*/
+/*###################################*/
+/* header ___________________________*/
+header{
+
+	height: 100vh;
+	
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: #343434;
+
+	font: 270% 'Architects Daughter', cursive, sans-serif;
+	color: white;
+
+	text-shadow: 3px 5px black;
+	box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.5), 0 10px 4px 0 rgba(0, 0, 0, 0.2);
+	text-decoration: none;
+	line-height: 300%;
+	text-align: center;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+header > a {
+
+	font: 100% 'Architects Daughter', cursive, sans-serif;	
+	color: white;
+}
+/* end header __________________________*/
+/*######################################*/
+/*######################################*/
+/* title _______________________________*/
+.title{
+
+	text-align: center;
+
+	margin: 7% 0 2% 0;
+	padding: 2%;
+
+	font-size: 200%;
+
+	border-top: 10px solid #FF5A4A;
+	border-bottom: 10px solid #FF5A4A;
+
+}
+/* end title __________________________*/
+/*#####################################*/
+/*#####################################*/
+/* table-matiere_______________________*/
+.table-matiere{
+	width: 250px;
+	top: 35vh;
+	margin-left: -310px;
+	font-size: 20px;
+	background-color: rgba(60, 60, 60, 0.95);
+	position: fixed;
+	z-index: 1;
+	transition: all 500ms ease;
+}
+
+.table-matiere:hover {
+	margin-left: -40px;
+	transition: all 500ms ease;
+}
+.table-matiere > li{
+	padding-bottom: 1%;
+}
+.table-matiere > li > a{
+	color: #EEE;
+	text-decoration: underline;
+}
+
+.table-matiere-content{
+	font-size: 80%;
+	font-style: italic;
+	margin-top: 1%;
+	display: block;
+	list-style: none;
+	text-decoration: none;
+}
+
+.table-matiere-content > a{
+	text-decoration: none;
+	color: #21C40A;
+	display: block;
+}
+/* end table-matiere___________________*/
+/*#####################################*/
+/*#####################################*/
+/* question ___________________________*/
+.question{
+	
+	margin: 3% 0% 2% 3%;
+	padding-left: 1%;
+
+	font-size: 140%;
+	text-shadow: 2px 5px 2px black;
+	border-left: solid 3px #FF5A4A;	
+}
+/* end question __________________________*/
+/*########################################*/
+/*########################################*/
+/* answer ________________________________*/
+.answer{
+
+	margin-left: 7%;
+	padding-left: 2%;
+	margin-bottom: 5%;
+	font-size: 100%;
+	
+	border-left: solid 3px #21C40A;
+
+	text-shadow: 2px 5px 2px black;
+}
+
+p.answer > a {color: #21C40A;}
+li.answer > a{ color: #21E80C;}
+
+li.answer { list-style: none; padding-bottom: 1%;}
+li.answer > p {margin-left: 2%;}
+
+/* end answer __________________________*/
+/*######################################*/
+/*######################################*/
+/* footer ______________________________*/
+footer{
+	height: 30px;
+
+	background-color: #343434;
+
+	display: flex;
+	justify-content: space-between;
+
+	margin-top: 5%;	
+	padding: 2%;
+
+	box-shadow: 0 0 4px 8px rgba(0, 0, 0, 0.5), 0 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+footer > a{ text-decoration:none; }
+
+#content{
+	background-color: #343434;
+	color: #EEEEEE;
+	font-size: 130%;
+	margin: 5px;
+}
+
+#content:before{ content: "\039e";}
+#content:after{ content: "\039e";}
+/* end footer __________________________*/
+/*######################################*/
+/*######################################*/
+/* animation ___________________________*/
+header{
+	animation: fadeIn 1s ease-in-out;
+}
+
+/*___________ fadeIn ____________*/
+@keyframes fadeIn {
+    0%{
+    opacity: 0.5;
+	}
+    100%{ 
+    opacity:1;
+	}
+}
+/*___________ end_fadeIn ____________*/
+/* end animation __________________________*/
+/*#########################################*/
+/*#########################################*/
+/* end css _____________________________*/

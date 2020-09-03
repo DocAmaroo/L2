@@ -1,0 +1,56 @@
+#==============================
+Exercice 1
+
+Compilateur :
+Traduit un code dans un certain langage (c++ par exemple) vers un langage machine.
+Il permet aussi de vérifié les erreurs du code.
+
+Interpréteur :
+Il ne produit pas de code exécutable et exécute à la volée le code écrit.
+Le code est interprété ligne après ligne.
+
+#==============================
+Exercice 2
+
+Similitudes entre un fichier d'en-tête et une bibliothèque :
+Les deux codes sont copié dans le code ou elles sont inclus lors de la compilation
+Le code ne possède que des déclarations et des méthodes
+
+Différences ---------------------------------------------- :
+un fichier d'en-tête décrit comment appeler la fonction, une bibliothèque contient le code compilé qui implémente cette fonctionnalité
+un fichier d'en-tête est un fichier de définition, une bibliothèque est un ensemble de fonctions ou d'outils.
+
+Dans le processus de compilation ils sont utilisé dès le début
+
+en-tête .h : <toto.h> | <titi.h>
+bibliothèque :  <iostream> | <cmath>
+
+#==============================
+Exercice 3
+
+/a faire
+
+#==============================
+Exercice 4
+
+
+Pour mettre les paramètres en ligne de commande il faut ajouter en paramètre du main :
+
+int main(int argc, char const *argv[])
+{
+	/* code */
+	return 0;
+}
+
+argc --> renvoie le nombre d'arguments entré en paramètre + 1
+*argv[] --> renvoie chaque paramètre dans un tableau
+
+l'environnement du processus est atteignale par le programme C via getenv()
+
+#==============================
+Exercice 6:
+Voir dans le fichier ex5.C
+
+#==============================
+Exercice 12:
+/a faire

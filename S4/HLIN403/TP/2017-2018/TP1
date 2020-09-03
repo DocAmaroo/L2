@@ -1,0 +1,75 @@
+#lang racket
+
+//============================================================================
+// Name        : TP1.rkt
+// Author      : Canta Thomas
+// Version     : /
+// Copyright   : Your copyright notice
+// Description : racket file
+//============================================================================
+
+;monabs
+(define (monabs x)
+  (if (< x 0) (* x -1) x))
+
+;care-div
+(define (care-div x y)
+  (if (= y 0) (display "error division by 0 !") (/ x y)))
+
+;s en fonction de t
+(define (fonc s t)
+  (cond
+    [(or ((> t -3) (< t -1))) 1]
+    [(or ((> t 2) (< t 4))) 2]
+    [else 0]))
+
+;placement
+(define (placement capital taux annee)
+  (if (= annee 1) (+ capital (* capital (/ taux 100)))
+  (placement (+ capital (* capital (/ taux 100))) taux (- annee 1))))
+
+;la tortue
+(require (lib "turtles.ss" "graphics"))
+
+;créeons une spirale
+(define (tourne x t)
+  (draw x) (turn 30) (spiral (+ x 0.2) (- t 1)))
+
+(define (spiral x t)
+  (if(= t 0) (display "fini") (tourne x t)))
+
+;turtlescarre
+(define (square lgr)
+  (draw lgr) (turn 90) (draw lgr) (turn 90) (draw lgr) (turn 90) (draw lgr) (turn 90))
+
+;turtleshexa
+(define (hexa lgr)
+  (draw lgr) (turn 60) (draw lgr) (turn 60) (draw lgr) (turn 60) (draw lgr) (turn 60) (draw lgr) (turn 60) (draw lgr) (turn 60))
+
+;figure
+(define (figure n m lgr)
+  (turtles #t)
+  (cond ([= m 1] (draw lgr) (turn (/ 360 n)))
+        ([> m 1] (draw lgr) (turn (/ 360 n)) (figure n (- m 1) lgr))))
+
+;bissextile
+(define (bissextile? year)
+  (if (= (modulo year 4) 0) (if (= (modulo year 100) 0) (if (= (modulo year 400) 0) #t #f) #t) #f))
+
+;nbanneebi
+(define (nb_annee_bi year)
+  (if (= year 1900) 0 (if (bissextile? year) (+ 1 (nb_annee_bi (- year 1))) (nb_annee_bi (- year 1)))))
+
+;nb_jour_1_jan
+(define (nb_jour_1_jan mois)  
+  (cond ( [or (< mois 1) (> mois 12)] (display "error mois invalid !"))
+        ([= mois 1] 0)
+        ([= mois 3] ( + 28 (nb_jour_1_jan (- mois 1))))
+        ([or(= mois 5) (= mois 7) (= mois 10) (= mois 12) ] (+ 30 (nb_jour_1_jan (- mois 1))))
+        (else (+ 31 (nb_jour_1_jan (- mois 1))))))
+
+;nbjours
+(define (nb_jours jour mois annee)
+  (cond ( [ = annee 1900] (+ (- jour 1) (nb_jour_1_jan mois)))
+        ( [ and (bissextile? annee) (> mois 2)] (+ 366 (nb_jours jour mois (- annee 1))))
+        ( else (+ 365 (nb_jours jour mois (- annee 1))))))

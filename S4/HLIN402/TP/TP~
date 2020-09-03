@@ -1,0 +1,263 @@
+#lang racket
+
+(define F '(<-> (^ a c) (v (! b) (-> c (^ B T)))))
+(define FAUX '(^ (^ a) b))
+
+; Q1
+(define F1 '(<-> (^ a b) ( v (! a) b )))
+(define F2 '(v (! (^ a (! b))) (! (-> a b)) ))
+(define F3 '(^ (!(-> a ( v a b) )) (!(!( ^ a ( v b (! c )))))))
+(define F4 '(^ (^ (^ (^ (^ (v (v(! a) b) d) (v (! d) c)) (v c a)) (v (! c) b)) (v (! c) (! b))) (v (! b) d)))
+
+; Q2
+(define (neg? f) (eq? f '!))
+(define (and? f) (eq? f '^))
+(define (or? f) (eq? f 'v))
+(define (imp? f) (eq? f '->))
+(define (equ? f) (eq? f '<->))
+(define (top? f) (eq? f 'T))
+(define (bot? f) (eq? f 'B))
+(define (symbLog? f) (or (top? f) (bot? f) (and? f) (or? f) (neg? f) (imp? f) (equ? f)))
+(define (symbProp? f) (and (symbol? f) (not (symbLog? f))))
+(define (atomicFbf? f) (or (symbProp? f) (top? f) (bot? f)))
+(define (conBin? f) (or (and? f) (or? f) (imp? f) (equ? f)))
+
+; Q2
+(define (fbf? f)
+  (cond ((atomicFbf? f) #t)
+        ((list? f) (cond ((and (= (length f) 2) (neg? (car f))) (fbf? (cadr f)))
+                         ((and (= (length f) 3) (conBin? (car f))) (and (fbf? (cadr f))
+                                                                        (fbf? (caddr f))) )
+                         (#t #f)))
+        (#t #f)))
+
+(define (conRac f) (car f))
+(define (fils f) (cadr f))
+(define (filsG f) (cadr f))
+(define (filsD f) (caddr f))
+(define (negFbf? f) (and (not (atomicFbf? f)) (neg? (conRac f))))
+
+;Q3
+(define (nbc f)
+  (cond ((atomicFbf? f) 0)
+        ((negFbf? f) (+ 1 (nbc (fils f))))
+        (#t (+ 1 (nbc (filsD f)) (nbc (filsG f))))))
+
+
+; Q4 
+(define (prof f)
+  (cond ( (atomicFbf? f) 0)
+        ( (negFbf? f)(+ 1 (prof (fils f))))
+        (#t (max (+ 1 (prof (filsG f))) (+ 1 (prof (filsD f)))))))
+
+; Q5
+(define SP '())
+(define (ensSP f)
+  (cond ((atomicFbf? f) (cons f '()))
+        ((negFbf? f) (ensSP (fils f)))
+        (#t (append(ensSP (filsG f))
+                    (ensSP (filsD f))))))
+
+;Q7
+(define I1 '( (a . 1) (b . 0) (c . 1)))
+(define I2 '( (a . 0) (b . 0) (c . 0)))
+(define I3 '( (a . 1) (b . 1) (c . 1)))
+
+;Q8
+(define (intSymb symb inter)
+  (cond ( [null? inter] (error "[Error]") )
+        ( [equal? (caar inter) symb] (cdar inter))
+        ( else (intSymb symb (cdr inter)))))
+
+;Q9
+(define (intNeg a)
+  (if (= a 0) 1 0))
+(define (intAnd a b)
+  (if (= a 0) 0
+      (if (= b 0) 0 1)))
+(define (intOr f p)
+  (if (or (= f 1) (= p 1)) 1 0))
+(define (intImp f p)
+  (if (and (= f 1) (= p 0)) 0 1))
+(define (intEqu f p)
+  (if (equal? f p) 1 0))
+(define (intTop) 1)
+(define (intBot) 0)
+
+;Q10
+(define (valV f I)
+  (cond
+    ((atomicFbf? f)
+     (cond
+       ((top? f) (intTop))
+       ((bot? f) (intBot))
+       ((symbProp? f) (intSymb f I))))
+    (#t
+     (cond
+       ((neg? (car f)) (intNeg (valV (fils f) I )))
+       ((and? (car f)) (intAnd (valV (fils f) I ) (valV (filsD f) I)))
+       ((equ? (car f)) (intEqu (valV (fils f) I ) (valV (filsD f) I)))
+       ((or? (car f)) (intOr (valV (fils f) I) (valV (filsD f) I)))
+       ((imp? (car f)) (intImp (valV (fils f) I) (valV (filsD f) I)))))))
+
+;Q11
+(define (modele? f I)
+  (= (valV f I) 1))
+
+;Q12
+(define IN '( ((a . 0) (b . 0)) ((a . 0) (b . 1)) ((a . 1) (b . 0)) ((a . 1) (b . 1) )))
+
+;Q13
+(define (ensInt l)
+  (cond ( [null? l] '(()) )
+        ( #t
+         (let ([l2 (ensInt (cdr l))])
+         (let ([l3 (map (lambda (L) (cons (cons (car l) 0) L)) l2)]
+               [l4 (map (lambda (L) (cons (cons (car l) 1) L)) l2)])
+           (append l3 l4))))))
+
+;Q14
+(define (satisfiable? p)
+  (ormap modele? p (ensInt p)))
+
+;Q15
+(define (valide? p)
+  (andmap modele? p (ensInt p)))
+
+;Q16
+(define (insatisfiable? p)
+  (if (null? (filter modele? p (ensInt p))) #t #f))
+
+;Q25
+(define (oteEqu f)
+  (cond ( [atomicFbf? f] f)
+        ( [negFbf? f] (list '! (oteEqu(fils f))))
+        ( [equ? (car f)]
+          (list '^
+                (list '-> (oteEqu (filsG f)) (oteEqu (filsD f)))
+                (list '-> (oteEqu (filsD f)) (oteEqu (filsG f)))) )
+        ( #t (list (car f)
+                   (oteEqu (filsG f))
+                   (oteEqu (filsD f))) ) ))
+
+(define F10 (oteEqu F1))
+
+;Q26
+(define (oteImp f)
+  (cond ( [atomicFbf? f] f)
+        ( [negFbf? f] (list '! (oteImp(fils f))))
+        ( [imp? (car f) ] (list 'v (list '! (oteImp (filsG f))) (oteImp (filsD f))))
+        ( #t (list (car f)
+                   (oteImp (filsG f))
+                   (oteImp (filsD f))))))
+
+(define F11 (oteImp F10))
+
+;Q27
+(define (oteCste f)
+  (cond ( [ negFbf? f ] (list '! (oteCste(fils f))))
+        ( [ atomicFbf? f]
+          (if (top? f) (list 'v '(! p) 'p)
+              (if (bot? f) (list '^ '(! p) 'p) f)))
+        ( #t (list (car f)
+                   (oteCste (filsG f))
+                   (oteCste (filsD f))))))
+
+(define F12 (oteCste F11))
+
+;Q28
+(define (redNeg fbf)
+  ( cond ( [ atomicFbf? fbf ] fbf )
+         ( [ negFbf? fbf ]
+           ( cond ( [atomicFbf? (fils fbf) ] (list '! ( fils fbf ) ))
+                  ( [ negFbf? (fils fbf) ] (fils (fils fbf)) )
+                  ( [ and? (car (fils fbf )) ] ( list 'v
+                                                     ( redNeg( list '! (redNeg ( filsG (fils fbf )))))
+                                                     ( redNeg(list '! (redNeg ( filsD (fils fbf )))))))
+                  ( [ or?  (car (fils fbf )) ] ( list '^
+                                                     ( redNeg( list '! (redNeg ( filsG (fils fbf )))))
+                                                     ( redNeg( list '! (redNeg ( filsD (fils fbf )))))))
+                  ( else ( list (car fbf)
+                                (redNeg (fils fbf))))))
+         ( #t (list (car fbf)
+                      (redNeg (filsG fbf))
+                      (redNeg (filsD fbf))))))
+                             
+(define F13 (redNeg F12))
+
+;Q29
+(define base '(v a (^ b c)))
+(define base2 '(v (^ b c) a))
+(define exempleDuCours '(^ (^ a (! b)) (v c (v (! d) (^ e f)))) )
+(define test '(v a (v b (v c (^ e f)))))
+     
+(define (and?2 fbf)
+  (not (or (atomicFbf? fbf) (negFbf? fbf) (or? (car fbf)))))
+
+(define (distOu fbf)
+  (cond ((atomicFbf? fbf) fbf)
+        ((negFbf? fbf) (list '! (distOu (fils fbf))))
+        ((and? (car fbf)) (let ((xandx (list '^ (distOu (filsG fbf)) (distOu (filsD fbf)))))
+                            (if (equal? fbf xandx) xandx (distOu xandx))))
+        (else (cond ((and (not (and?2 (filsG fbf))) (not (and?2 (filsD fbf))))
+                      (let ((xorx (list 'v (distOu (filsG fbf)) (distOu (filsD fbf)))))
+                        (if (equal? fbf xorx) xorx (distOu xorx))))
+                    ((and?2 (filsG fbf))
+                     (let ((andorx (list '^
+                           (distOu (list 'v (filsG (filsG fbf)) (filsD fbf)))
+                           (distOu (list 'v (filsD (filsG fbf)) (filsD fbf))))))
+                       (if (equal? fbf andorx) andorx (distOu andorx))))
+                    ((and?2 (filsD fbf))
+                     (let ((xorand (list '^
+                           (distOu (list 'v (filsG fbf) (filsG (filsD fbf))))
+                           (distOu (list 'v (filsG fbf) (filsD (filsD fbf)))))))
+                       (if (equal? fbf xorand) xorand (distOu xorand))))
+                    (else
+                     (let ((andorand (list '^
+                           (distOu (list 'v (filsG (filsG fbf)) (list '^ (filsG (filsD fbf)) (filsD (filsD fbf)))))
+                           (distOu (list 'v (filsD (filsG fbf)) (list '^ (filsG (filsD fbf)) (filsD (filsD fbf))))))))
+                     (if (equal? fbf andorand) andorand (distOu andorand))))))))
+
+
+  
+(define F14 (distOu F13))
+
+;Q30
+(define (formConj fbf)
+  (distOu(redNeg(oteCste(oteImp(oteEqu fbf))))))
+
+;Q31
+(define fC '(^ (v b (v d (! c))) (^ d (v a b))))
+(define C0 '(^ (v a b) (^ (v a c) (^ (v b c) b))))
+(define fD '(v (v a b) (v b (! c))))
+
+(define (transClause fbf)
+  (cond ( [null? fbf] '() )
+        ( [atomicFbf? fbf] (list fbf))
+        ( [negFbf? fbf] (list fbf))
+        ( [or? (conRac fbf)] (set-union (transClause (filsG fbf)) (transClause (filsD fbf)) ) )
+        ( #t (set-union (ensSP (filsG fbf)) (ensSP (filsD fbf))))))
+
+;Q32
+(define (transEnsClause fbf)
+  (cond ( [null? fbf] '())
+        ( [atomicFbf? fbf] (list (list fbf)))
+        ( [negFbf? fbf] (list fbf))
+        ( [or? (conRac fbf)] (list (transClause fbf)))
+        ( [and? (conRac fbf)]
+          (set-union (transEnsClause (filsD fbf)) (transEnsClause (filsG fbf))))
+        ( #t (list fbf))))
+
+;Q33
+(define (formeClausale fbf)
+  (transEnsClause (formConj fbf)))
+
+;Q34
+(define (parcoursClause clause element)
+  (cond ( [null? clause] (tautologique (cdr clause)))
+        ( [and (negFbf? (car clause)) (equal? element (cadr (car clause)))] #t)
+        ( [equal? element (car clause)] #t )
+        ( #t (parcoursClause (cdr clause) element))))
+
+(define (tautologique clause )
+  (if [or (null? clause) (null? (cdr clause))] #f (parcoursClause (cdr clause) (car clause))))

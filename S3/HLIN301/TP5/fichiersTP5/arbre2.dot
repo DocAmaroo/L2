@@ -1,0 +1,4 @@
+digraph G {   label = "Dictionnaire apres ajout du mot" 
+graph [ fontname=fixed, fontsize = 20];node [ fontname=fixed, fontsize = 20];edge [ fontname=fixed, fontsize = 20];94084712729280 [label="true" ] ;
+
+ }

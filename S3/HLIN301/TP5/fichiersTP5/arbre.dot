@@ -1,0 +1,4 @@
+digraph G {   label = "Dictionnaire" 
+graph [ fontname=fixed, fontsize = 20];node [ fontname=fixed, fontsize = 20];edge [ fontname=fixed, fontsize = 20];94688449150960 [label="false" ] ;
+
+ }

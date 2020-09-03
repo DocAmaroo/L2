@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> TP2 - CSS et Sécurisation </title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/tp2.css">
+
+	<!-- META -->
+	<meta charset="utf-8">
+
+</head>
+
+<body>
+
+	<nav>
+
+		<a href="#header"> <img src="../icon/up_arrow.png"> </a>
+
+		<ul> 
+			<li> <a href="../index.html"> Index </a>
+
+				<ul class="dropdown-content">
+					<a href="../index.html#tp1"> <li> TP1 </li> </a>
+					<a href="../index.html#tp2"> <li> TP2 </li> </a>
+					<a href="../index.html#tp3"> <li> TP3 </li> </a>
+					<a href="../index.html#tp4"> <li> TP4 </li> </a>
+					<a href="../index.html#tp5"> <li> TP5 </li> </a>
+				</ul>
+			</li>
+		</ul>
+
+		<ul> 
+			<li> <a href="../tp1/tp1.html"> TP1 </a>
+
+				<ul class="dropdown-content">
+					<a href="../tp1/tp1.html#partie1"> <li> SHELL </li> </a>
+					<a href="../tp1/tp1.html#partie2"> <li> (X)HTML </li> </a>
+					<a href="../tp1/pp.html"> <li> pp.html </li> </a>
+					<a href="../tp1/table.html"> <li> table.html </li> </a>
+
+				</ul>
+			</li>
+		</ul>
+
+		<ul> 
+			<li> <a href="../tp3/tp3.html"> TP3 </a>
+
+				<ul class="dropdown-content"> 
+					<a href="../tp3/tp3.html#partie1"> <li> Traitement de texte </li> </a>
+					<a href="../tp3/tp3.html#partie2"> <li> LaTeX </li> </a>
+				</ul>
+			</li>
+		</ul>	
+
+		<ul> 
+			<li> <a href="../tp4/tp4.html"> TP4 </a>
+
+				<ul class="dropdown-content">
+					<a href="../tp4/tp4.html#partie1"> <li> Initiation aux tableurs </li> </a>
+								
+				</ul>
+			</li>
+		</ul>
+		
+		<ul> 
+			<li> <a href="../tp5/tp5.html"> TP5 </a>
+
+				<ul class="dropdown-content"> 
+					<a href="../tp5/tp5.html#partie1"> <li> Présentation </li> </a>
+				</ul>
+			</li>
+		</ul>
+
+		<ul> 
+			 <li> <a href="../detente/detente.html"> Detente </a>
+
+				<ul class="dropdown-content"> 
+
+					<a href="../detente/detente.html#partie1"> <li> Un peu de musique ? </li> </a> 
+					<a href="../detente/detente.html#partie2"> <li> Une vidéo de chat trop mignon ? </li> </a>
+					<a href="../detente/detente.html#partie3"> <li> Qui veut une bonne raclette ? (1 pers.) </li> </a>
+					<a href="../detente/detente.html#partie4"> <li> Aimez-vous les chiens ? </li> </a>
+
+				</ul>
+			</li>
+		</ul>
+			
+		<a href="#footer"> <img src="../icon/down_arrow.png"> </a>
+
+	</nav>
+
+	<header id="header">
+		
+		<h1> Travaux Pratique 2 </h1>
+		<h3> CSS et Sécurisation </h3>
+		
+		<a href="tp2.pdf" target="blank"> Ouvrir pdf </a>		
+
+	</header>
+
+	<div> 
+		<ul>
+			<li style="list-style: none"> 
+				<ol class="table-matiere">
+					<li> <a href="#partie1">CSS</a>
+						<article class="table-matiere-content"> 
+							<a href="cassoulet.html"> cassoulet.html </a>
+							<a href="base.html"> base.html </a>
+						</article>
+					</li>
+					
+					<li> <a href="#partie2">Sécurisation</a> </li>
+
+				</ol>
+			</li>
+		</ul>
+
+	</div>
+
+	<p class="title" id="partie1"> Première partie : CSS </p>
+
+	<ol> 
+
+		<li class="question"> Quelle est la taille par défaut d'une division ? </li> 
+		<p class="answer"> En hauteur, la hauteur que prend son contenu et en largeur, la largeur de la page. </p>
+
+		<li class="question"> Comment les divisions évoluent-elles quand on module la taille de la fenêtre du navigateur ? </li> 
+		<p class="answer"> Les divisions évoluent en fonction de la taille de la fenêtre du naviguateur, en aillant les mêmes limites. </p>
+		<li class="question"> En utilisant des valeurs négatives pour les marges à droite et à gauche sur une des quatre divisions, trouvez la largeur par défaut de la marge en pixels. </li> 
+		<p class="answer"> La largeur par défaut de la marge en pixels est de 8 pixels sur chaque côté. </p>
+
+		<li class="question"> Autour de la troisième division, créez une bordure solide, noire, de largeur 2px. Que constatez-vous ? </li> 
+		<p class="answer"> La bordure "prend la place" du texte et le pousse un peu plus à l'intérieur, les padding et margin s'appliquent à la bordure. </p>
+
+		<li class="question"> Dans chaque DIV, mettez le texte entre les balises &ltp&gt et &lt/p&gt : quel est l'effet produit lorsque vous visualisez la page Web ? Conclusions ? </li>
+		<p class="answer"> Les divisions s'écartent en hauteur lorsque l'on met une balise &ltp&gt&lt/p&gt dedans. <br> La balise &ltp&gt&lt/p&gt s'espacent elle-même du reste du contenu. </p>
+
+	</ol>
+
+	<p class="title" id="partie2"> Deuxième partie : Sécurisation </p>
+
+	<ol>
+
+		<li class="question"> Rechercher sur Internet la durée de vie moyenne d'un DVD, d'une clé USB, d'un disque dur,<br>Selon vos recherches, quel est le support le plus fiable ? </li> 
+		<p class="answer"> La durée de vie d'un DVD est entre 5 et 10ans <br> La durée de vie d'une clé USB est d'environ 10 ans mais sa peu être bien plus comme bien moins car elle dépend du nombre de cycle d'écriture <br> ou d'effacement (entre 10.000 et 100.000) <br> La durée de vie d'un disque dur et d'environ 30 ans </p>
+
+		<li class="question"> Parmi les formats suivants, lesquels sont des formats compressés ? .txt .doc .odt .raw .png .jpg </li> 
+		<p class="answer"> .raw format image - compressés sans pertes <br> .png format image - compressés sans pertes <br> .jpg format image - compressés avec pertes </p>
+
+		<li class="question"> Parmi les formats d'archivage proposés, lesquels sont propriétaires ? </li> 
+		<p class="answer"> Le format .rar et .zip et .tar.gz sont prioritaire </p>
+
+		<li class="question"> Lesquels vous permettent de protéger votre archive par un mot de passe ? </li> 
+		<p class="answer"> Le format .cbz, .ear, .war, .rar et .zip permettent de protéger l'archive par un mot de passe </p>
+
+		<li class="question"> Lesquels permettent de protéger aussi la liste des fichiers archivés ? </li> 
+		<p class="answer"> Aucun permettent de protéger la liste des fichiers archivés. </p>
+
+		<li class="question"> Selon vous, à quoi sert-il de « découper » l'archive en plusieurs fichiers de même taille comme certains formats le proposent ? </li> 
+		<p class="answer"> Permet de transporter des archives très lourdes par plusieurs packets différents. <br> De plus elle permet de sécuriser notre fichier, car si l'archive est piraté, le pirate devra reconstituer le fichier tel un puzzle.</p>
+
+		<li class="question"> Rechercher sur Internet la signification de sauvegarde incrémentale, synchronisation de supports et versioning, puis citer des logiciels sous licence libre proposant ces fonctionnalités. </li> 
+		<p class="answer"> 
+			La sauvegarde incrémentale permet de sauvegarder les fichiers modifiés depuis la dernière sauvegarde : 
+			<br> <i> > Au jour J on opère une sauvegarde complète; </i> 
+			<br> <i> > Au jour J+1, la sauvegarde incrémental est réalisé par référence au jour J. </i>
+			<br>
+			<br> La synchronisation de support, ou versionning, permet de sauvegarder toutes les versions de chaque fichiers 
+			<br> <i> > Elle permet en tout point depuis une première sauvegarde d'accéder à chaque modifications apportés depuis celle-ci. </i>
+			<br>
+			<br> Les logiciels sous license libre proposant ces fonctionnalités sont docx, odt, ods, gitlab et autres...
+		</p>
+
+		<li class="question"> Rechercher sur Internet un exemple récent de piratage d'informations depuis un espace de stockage sur Internet (« cloud »). </li> 
+		<p class="answer"> L'espace de stockage en ligne, aussi nommé cloud, qui a été piraté récemment est iCloud qui a permis l'accès à des comptes utilisateurs et la divulgation de photo de stars nues --> <a href="https://www.lemondeinformatique.fr/actualites/lire-piratage-de-icloud-l-attaque-par-force-brute-certainement-utilisee-58479.html" target="_blank"> Voir l'article </a></p>
+
+	</ol>
+
+	<footer id="footer"> 
+
+		<a href="mailto:thomas.canta@etu.umontpellier.fr" id="content"> Me contacter </a>
+		<p id="content"> CANTA Thomas &copy | Informatique - Gr B </p>
+		<a href="#header" id="content"> Revenir en haut </a>
+
+	</footer>
+
+</body>
+
+</html>

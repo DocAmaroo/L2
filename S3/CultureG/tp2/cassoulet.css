@@ -1,0 +1,68 @@
+/* __cassoulet_css__*/
+
+body{
+	background: #D3D3D3;
+	border-right: solid 10px green;
+}
+
+h2{
+	text-align: center;
+}
+
+ul{
+	font-style: italic;
+	background: #F5DEB3;
+}
+
+li > a:link {
+	color: darkgreen;
+}
+li > a:visited {
+	color: yellow;
+}
+li > a:hover {
+	color: red;
+}
+li > a:active {
+	color: darkgreen;
+}
+
+img{
+	float : right;
+}
+
+p.paragraphe{
+	background: yellow;
+	color: green;
+	font-weight: bold;
+	font-size: x-small;
+	margin-left: 60px;
+	margin-right: 60px;
+}
+
+table{
+	margin: auto;
+	margin-left: 25%;
+	text-align: center;
+	border-style: solid;
+	background: #FE9A2E;
+	font-family: sans-serif;
+
+}
+
+th{
+	padding: 0px 75px 0px 75px;
+}
+
+tr{
+	font-weight: bold;
+}
+tr.title{
+	background: #F7FE2E;
+	font-style: italic;
+}
+
+tr.data, caption{
+	background: #FE9A2E;
+}
+

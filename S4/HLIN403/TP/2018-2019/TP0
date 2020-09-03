@@ -1,0 +1,22 @@
+;TP0
+
+
+;PUISSANCE 2
+(define (puis2 x)
+  (* x x))
+
+;PUISSANCE 4
+(define (puis4 x)
+  (puis2 (puis2 x)))
+
+;divisible?
+(define (divisible? x y)
+  (=(modulo x y) 0))
+
+;CONDITIONELLE
+(define (lacond x)
+  (cond ( [= x 5] 3 )
+        ( [>= x 8] (puis2 x) )
+        ( [= x 6] (display "toto") )
+        ( [= x 7] #t )
+        ( else #f)))

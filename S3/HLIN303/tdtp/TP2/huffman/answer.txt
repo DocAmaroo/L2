@@ -1,0 +1,33 @@
+ex16 :
+1.
+ Tableau : int tab[2][256]
+2 -> Nombre de lignes ( Caractère et Probabilité )
+ 256 -> Nombre de caractère en ASCII
+ Dans le fichier les caractère sont stocké en 8 bits donc on fait la taille du fichier en bits divisé par 8 
+ pour avoir le nombre de caractère dans le fichier
+
+ex17 :
+On crée un tableau de 4 lignes à n charactère colonnes
+char
+probabilité
+code binaire associé a la probabilité
+
+ex18 :
+
+#Avantages
+Liaison statique:
+ --> situé dans la pile
+ --> durée de vie du processus
+
+Liaison dynamique:
+ --> portée globale
+
+#Désavantage
+liaison statique:
+ --> portée locale
+
+liaison dynamique:
+ --> situé dans le tas
+ --> durée de vie définit par le malloc
+
+

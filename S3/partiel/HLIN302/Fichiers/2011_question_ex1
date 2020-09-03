@@ -1,0 +1,25 @@
+-- Exercice 1
+1) Q.1.d
+2) Q.2.d
+3) Q.3.a
+   Q.3.b
+4) Q.4.d
+   Q.4.c
+5)
+
+-- Exercice 2
+#ifndef _INCONNU_H
+#define _INCONNU_H
+
+class Inconnu{
+	
+public:	
+	Inconnu(int,int,int);
+	Inconnu(int*);
+	Inconnu(int);
+	Inconnu& operator>>(const Inconnu& A);
+	Inconnu& operator<<(const Inconnu& A);
+	Inconnu& operator+(const Inconnu& A; const int B);
+	Inconnu& operator+(const Inconnu& A; const Inconnu& B);
+};
+#endif

@@ -1,0 +1,52 @@
+/* CANTA Thomas/ index.css*/
+
+/*____________ header ____________*/
+header{
+
+	background-image: url("../background/index.jpg");
+	color: #EEEEEE;
+	text-shadow: 3px 5px black;
+}
+
+
+header > a {
+
+	font: 50% 'Architects Daughter', cursive, sans-serif;	
+	color: #EEEEEE;
+}
+
+#ent_logo{
+	vertical-align: middle;
+	padding-right: 1%;
+}
+/*____________ end_header ____________*/
+
+
+/*____________ description ____________*/
+#description{
+	padding-top: 2%;
+}
+
+.tp{
+	margin-left: 2%;
+	margin-top: 2%;
+	padding: 1%;
+	font: 150% consolas,sans-serif;
+	border-left: solid 5px #FF5A4A
+}
+
+.tp:hover{
+	
+}
+
+.chapter{
+	margin-left: 2%;
+	padding: 1.5%;
+}
+
+.logo{
+	vertical-align: bottom;
+	height: 30px;
+}
+
+/*____________ end_description ____________*/

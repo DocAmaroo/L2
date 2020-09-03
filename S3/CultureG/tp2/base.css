@@ -1,0 +1,23 @@
+/* ___base_css___ */
+
+body{
+	background: dimgray;
+}
+
+.un{
+	background: #0000FF;
+	color: white;
+}
+
+.deux{
+	background: #008000;
+	padding-left: 5px;
+}
+.trois{
+	background: #FF0000;
+	border: 2px solid black;
+}
+.quatres{
+	background: #FFFF00;
+	margin-top: 15px;
+}

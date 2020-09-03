@@ -1,0 +1,136 @@
+;TP2
+
+; Définitions des objets de base
+(define LVal '(1 2 3 4 5 6 7 8 9 10 25 50 75 100))
+(define Op '(+ * - /))
+
+;make-cible
+(define (make-cible)
+    (+ (random 900) 100 ))
+
+;make-tirage
+(define (parcours list n)
+    (if (= n 0) (car list)
+        (parcours (cdr list) (- n 1))))
+
+(define (make-tirage)
+    (cons (parcours LVal (random 14))
+          (cons (parcours LVal (random 14))
+                (cons (parcours LVal (random 14))
+                      (cons (parcours LVal (random 14))
+                            (cons (parcours LVal (random 14))
+                                  (cons (parcours LVal (random 14)) '())))))))
+;estDans?
+(define (estDans? entier liste)
+  ( cond ( [ null? liste ] #f )
+         ( [ = (car liste) entier ] #t)
+         ( else (estDans? entier (cdr liste)))))
+
+
+;estValide
+(define estValide?
+  (lambda (op x y)
+    (cond ( [ and (= ( (eval op) 1 2 ) ( / 1 2 ) ) ( = y 0 ) ] #f)
+          ( [ and (>= ( (eval op) x y) 0) (integer? ((eval op) x y)) ] #t)
+          (else #f))))
+
+;opere
+(define ( opere list_op x y )
+    (cond ( [ null? list_op ] '() )
+          ( [ estValide? (car list_op) x y ]
+            (cons ( (eval (car list_op)) x y) ( opere (cdr list_op) x y)))
+          ( [ estValide? (car list_op) y x ]
+            (cons ( (eval (car list_op)) y x) ( opere (cdr list_op) x y)))
+          (else (opere (cdr list_op) x y))))
+
+;genere-plaque
+(define xElement
+  (lambda ( n list_numb)
+    (if (= n 1) (car list_numb)
+        (xElement (- n 1) (cdr list_numb)))))
+
+(define strip
+  (lambda (list_numb x1 x2 i)
+    (cond ( [ null? list_numb ] '() )
+          ( [ = i x1 ] (strip (cdr list_numb) x1 x2 (+ i 1)))
+          ( [ = i x2 ] (strip (cdr list_numb) x1 x2 (+ i 1)))
+          (else (cons (car list_numb) (strip (cdr list_numb) x1 x2 (+ i 1)))))))
+
+(define xlist
+  (lambda (l1 l2)
+    (if (null? l1) '()
+        (cons (cons (car l1) l2) (xlist (cdr l1) l2)))))
+
+
+(define genere_plaque_bis
+  (lambda (list_op  list_numb x1 x2)
+    (cond ( [ = x1 (length list_numb) ] '())
+          ( [ > x2 (length list_numb) ] (genere_plaque_bis list_op list_numb (+ x1 1) (+ x1 2)))
+          (else (append (xlist (opere list_op (xElement x1 list_numb) (xElement x2 list_numb)) (strip list_numb x1 x2 1)) (genere_plaque_bis list_op list_numb x1 ( + x2 1)))))))
+
+(define genere_plaque
+  (lambda (list_op list_numb)
+    (genere_plaque_bis list_op list_numb 1 2)))
+
+(define jeu (make-tirage))
+(define listPlaque (genere_plaque Op jeu))
+
+;estDans2
+(define (estDans2? listeOp listePlaque entier)
+  ( cond ( [ null? listePlaque ] #f )
+         ( [ estDans? entier (opere listeOp (caar listePlaque) (cadar listePlaque) ) ] #t )
+         ( else (estDans2? listeOp (cdr listePlaque) entier))))
+
+;genere_all_plaque
+(define (genere_all_plaque listOp list)())
+
+;ceb
+(define (ceb listeOp jeu entier)
+  (ceb_acc listPlaque entier))
+
+(define (ceb_acc listePlaque entier)
+  (cond ( [null? listePlaque] (display "le compte est pas bon"))
+        ( [estDans? entier (car listePlaque) ] (display "le compte est bon"))
+        ( else (ceb_acc (cdr listePlaque) entier))))
+
+;approche
+(define (approche list int)
+  (approche_acc list int 0))
+
+;approche call whit accumulator
+(define (approche_acc list intReduce intIncrease)
+  ( cond ( [null? list] acc)
+         ( [estDans? intReduce list] intReduce)
+         ( [estDans? intIncrease list] intIncrease)
+         ( else (approche_acc list (- intReduce 1) (+ intIncrease 1)))))
+
+(define (plus x1 x2) (+ x1 x2))
+(define (fois x1 x2) (* x1 x2))
+(define (sous x1 x2)
+  (if (estValide? - x1 x2) (- x1 x2) (if (estValide? - x2 x1) (- x2 x1) -1)))
+(define (div x1 x2)
+  (if (estValide? / x1 x2) (/ x1 x2) (if (estValide? / x2 x1) (/ x2 x1) -1)))
+
+(define (createList taille element)
+  (if (= 0 taille) '() (cons element (createList (- taille 1) element))))
+
+(define (test listOp list)
+  (testAcc listOp list '()))
+
+(define (nettoieList list)
+  (cond ( [= 0 (length list)] '())
+        ( [= (car list) -1] '())
+        ( #t (cons (car list) (nettoieList (cdr list))))))
+
+(define (testAcc listOp liste acc)
+  (cond ([null? listOp] acc)
+        ([null? liste] (testAcc (cdr listOp) jeu acc))
+        (#t
+         (cond ([ equal? (car listOp) '+]
+                (nettoieList (testAcc listOp (cdr liste) (append acc (list (car liste)) (map plus liste (createList (length liste) (car liste)))))))
+               ([ equal? (car listOp) '-]
+                (nettoieList (testAcc listOp (cdr liste) (append acc (list (car liste)) (map sous liste (createList (length liste) (car liste)))))))
+               ([ equal? (car listOp) '*]
+                (nettoieList (testAcc listOp (cdr liste) (append acc (list (car liste)) (map fois liste (createList (length liste) (car liste)))))))
+               ([ equal? (car listOp) '/]
+                (nettoieList (testAcc listOp (cdr liste) (append acc (list (car liste)) (map div liste (createList (length liste) (car liste)))))))))))

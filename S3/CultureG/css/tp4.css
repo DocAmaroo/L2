@@ -1,0 +1,9 @@
+/* CANTA Thomas/ tp4.css*/
+
+header{ 
+	background-image: url("../background/tp4.jpg");
+	color: black;
+	text-shadow: 3px 5px white;
+}
+
+header > a{ color: black; }

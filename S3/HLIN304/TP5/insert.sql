@@ -1,0 +1,8 @@
+INSERT INTO personne VALUES (0,'Martin', 'Paul');
+INSERT INTO personne VALUES (1,'Duval', 'Catin');
+INSERT INTO personne VALUES (2,'PASDIDEE','');
+
+INSERT INTO tuture VALUES ('1111AA01','Maserati',2056,50000,2);
+INSERT INTO tuture VALUES ('JTAIMEPA','Ford',2000,2,0);
+INSERT INTO tuture VALUES ('CACAPOUE','Lamborghini',2560,1000000000,1);
+INSERT INTO tuture VALUES ('UNEPLAQE','Lamborghini',2260,699999,1);

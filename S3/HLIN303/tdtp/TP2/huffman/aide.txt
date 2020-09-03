@@ -1,0 +1,2 @@
+On prend les deux plus petite de tous le tableau de valeur incluant les valeurs combiner
+donc on combine les deux valeures les plus petites à chaque étape

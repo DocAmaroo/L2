@@ -1,0 +1,95 @@
+#lang racket
+
+//============================================================================
+// Name        : TP2.rkt
+// Author      : Canta Thomas
+// Version     : /
+// Copyright   : Your copyright notice
+// Description : racket file
+//============================================================================
+
+; Définitions des objets de base
+(define LVal '(1 2 3 4 5 6 7 8 9 10 25 50 75 100))
+(define Op '(+ * - /))
+
+;make-cible
+(define make-cible
+  (lambda ()
+    (+ (random 900) 100 )))
+
+;make_tirage
+(define parcours
+  (lambda (liste n)
+    (if (= n 0) (car liste)
+        (parcours (cdr liste) (- n 1)))))
+
+(define make_tirage
+  (lambda ()
+    (cons (parcours LVal (random 14))
+          (cons (parcours LVal (random 14))
+                (cons (parcours LVal (random 14))
+                      (cons (parcours LVal (random 14))
+                            (cons (parcours LVal (random 14))
+                                  (cons (parcours LVal (random 14))'()))))))))
+;estDans?
+(define estDans?
+  (lambda (n liste)
+    (if (null? liste) #f
+        (if (= (car liste) n) #t
+            (estDans? n (cdr liste))))))
+
+;estValide?
+(define estValide?
+  (lambda (op x y)
+    (cond ( [ and (= ( (eval op) 1 2 ) ( / 1 2 ) ) ( = y 0 ) ] #f)
+          ( [ and (> ( (eval op) x y) 0) (integer? ((eval op) x y)) ] #t)
+          (else #f))))
+
+;opere
+(define opere
+  (lambda (list_op x y)
+    (cond ( [ null? list_op ] '() )
+          ( [ estValide? (car list_op) x y ]
+            (cons ( (eval (car list_op)) x y) ( opere (cdr list_op) x y)))
+          ( [ estValide? (car list_op) y x ]
+            (cons ( (eval (car list_op)) y x) ( opere (cdr list_op) x y)))
+          (else (opere (cdr list_op) x y)))))
+
+;genere-plaque
+(define xElement
+  (lambda ( n list_numb)
+    (if (= n 1) (car list_numb)
+        (xElement (- n 1) (cdr list_numb)))))
+
+(define strip
+  (lambda (list_numb x1 x2 i)
+    (cond ( [ null? list_numb ] '() )
+          ( [ = i x1 ] (strip (cdr list_numb) x1 x2 (+ i 1)))
+          ( [ = i x2 ] (strip (cdr list_numb) x1 x2 (+ i 1)))
+          (else (cons (car list_numb) (strip (cdr list_numb) x1 x2 (+ i 1)))))))
+
+(define xlist
+  (lambda (l1 l2)
+    (if (null? l1) '()
+        (cons (cons (car l1) l2) (xlist (cdr l1) l2)))))
+
+
+(define genere_plaque_bis
+  (lambda (list_op  list_numb x1 x2)
+    (cond ( [ = x1 (length list_numb) ] '())
+          ( [ > x2 (length list_numb) ] (genere_plaque_bis list_op list_numb (+ x1 1) (+ x1 2)))
+          (else (append (xlist (opere list_op (xElement x1 list_numb) (xElement x2 list_numb)) (strip list_numb x1 x2 1)) (genere_plaque_bis list_op list_numb x1 ( + x2 1)))))))
+
+(define genere_plaque
+  (lambda (list_op list_numb)
+    (genere_plaque_bis list_op list_numb 1 2)))
+
+;ceb
+(define jeu (make_tirage))
+
+(define genere_all_plaque
+  (lambda (list_op p1 p2)
+    (cond ( [null? p1] '())
+          ( [null? p2] '())
+          ( [null? (genere_plaque list_op plaque)] '())
+          ( [

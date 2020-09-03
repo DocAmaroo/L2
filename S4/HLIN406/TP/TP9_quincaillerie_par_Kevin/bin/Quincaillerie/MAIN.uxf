@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1640</x>
+      <y>110</y>
+      <w>210</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Stereotype&gt;&gt;
+Package::FatClass
+{Some Properties}
+--
+-id: Long
+_-ClassAttribute: Long_
+--
+#Operation(i: int): int
+/+AbstractOperation()/
+--
+Responsibilities
+-- Resp1
+*-- Resp2*</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>120</y>
+      <w>130</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Clou : PieceBase
+-
+nom : "Clou"
+reference : "001"
+prix : 1
+fabrication : 1
+garantie : 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>120</y>
+      <w>140</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Planche : PieceBase
+-
+nom : "Planche"
+reference : "002"
+prix : 3
+fabrication : 1
+garantie : 4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>120</y>
+      <w>200</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>PlancheCloute : PieceMontee
+-
+nom : "PlancheCloute"
+reference : "021"
+prixMontage : 1 
+fabrication : 1
+garantie : 5
+montage : 10
+composants : Planche + 2Clou</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>260</y>
+      <w>210</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Q1 : Commande
+-
+vendeur : "IBob"
+acheteur : "Patrick"
+panier : "P1"
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>360</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>IBob : Quincaillerie
+-
+coordonee : 3630
+articleDispo :
+	+Clou
+	+Planche
+	+PlancheCloute</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>360</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Patrick : Particulier
+-
+coordonee : 118218
+adresse Postale : patrick@lebeauf.fr
+identifiant : 001
+carte Fidelite : ---
+nom : "Patrick"
+civilite : M
+sexe: M</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>340</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>: PanierAchat
+-
+listArticle :
+	+ PlancheCloute
+	+ 3 Clou</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

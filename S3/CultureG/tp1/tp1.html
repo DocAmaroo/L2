@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<title> TP1 - Shell et HTML </title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="../css/navbar.css">
+	<link rel="stylesheet" type="text/css" href="../css/tp1.css">
+
+	<!-- META -->
+	<meta charset="utf-8">
+	
+</head>
+
+<body>
+
+	<nav>
+
+		<a href="#header"> <img src="../icon/up_arrow.png"> </a>
+
+		<ul> 
+			<li> <a href="../index.html"> Index </a>
+
+				<ul class="dropdown-content">
+					<a href="../index.html#tp1"> <li> TP1 </li> </a>
+					<a href="../index.html#tp2"> <li> TP2 </li> </a>
+					<a href="../index.html#tp3"> <li> TP3 </li> </a>
+					<a href="../index.html#tp4"> <li> TP4 </li> </a>
+					<a href="../index.html#tp5"> <li> TP5 </li> </a>
+				</ul>
+			</li>
+		</ul>
+
+		<ul> 
+			<li> <a href="../tp2/tp2.html"> TP2 </a>
+
+				<ul class="dropdown-content"> 
+					<a href="../tp2/tp2.html#partie1"> <li> CSS </li> </a>
+					<a href="../tp2/tp2.html#partie2"> <li> Sécurisation </li> </a>
+					<a href="../tp2/cassoulet.html"> <li> cassoulet.html </li> </a>
+					<a href="../tp2/base.html"> <li> base.html </li> </a>
+				</ul>
+			</li>
+		</ul>
+
+		<ul> 
+			<li> <a href="../tp3/tp3.html"> TP3 </a>
+
+				<ul class="dropdown-content"> 
+					<a href="../tp3/tp3.html#partie1"> <li> Traitement de texte </li> </a>
+					<a href="../tp3/tp3.html#partie2"> <li> LaTeX </li> </a>
+					<a href="../tp3/texte.odt"> <li> texte.odt  <h6> <i> (à télécharger) </i> </h6> </li> </a>
+					<a href="../tp3/texte.pdf" target="_blank"> <li> texte.pdf </li> </a>
+				</ul>
+			</li>
+		</ul>	
+
+		<ul> 
+			<li> <a href="../tp4/tp4.html"> TP4 </a>
+
+				<ul class="dropdown-content">
+					<a href="../tp4/tp4.html#partie1"> <li> Initiation aux tableurs </li> </a>
+					<a href="../tp4/exo3_4_5_&_8.ods"> <li> exo3.ods <h6> <i> (à télécharger) </i> </h6>  </li> </a>
+					<a href="../tp4/exo3_4_5_&_8.pdf" target="_blank"> <li> exo3.pdf </li> </a>				
+				</ul>
+			</li>
+		</ul>
+		
+		<ul> 
+			<li> <a href="../tp5/tp5.html"> TP5 </a>
+
+				<ul class="dropdown-content"> 
+					<a href="../tp5/tp5.html#partie1"> <li> Présentation </li> </a>
+					<a href="../tp5/MaPresentation.odp"> <li> Presentation.odp <h6> <i> (à télécharger) </i> </h6> </li> </a>
+					<a href="../tp5/MaPresentation.pdf" target="_blank"> <li> Presentation.pdf </li> </a> 
+				</ul>
+			</li>
+		</ul>
+
+		<ul> 
+			 <li> <a href="../detente/detente.html"> Detente </a>
+
+				<ul class="dropdown-content"> 
+
+					<a href="../detente/detente.html#partie1"> <li> Un peu de musique ? </li> </a> 
+					<a href="../detente/detente.html#partie2"> <li> Une vidéo de chat trop mignon ? </li> </a>
+					<a href="../detente/detente.html#partie3"> <li> Qui veut une bonne raclette ? (1 pers.) </li> </a>
+					<a href="../detente/detente.html#partie4"> <li> Aimez-vous les chiens ? </li> </a>
+
+				</ul>
+			</li>
+		</ul>
+			
+		<a href="#footer"> <img src="../icon/down_arrow.png"> </a>
+
+	</nav>
+
+	<header id="header">
+		
+		<h1> Travaux Pratique 1 </h1>
+		<h3> Ubuntu(Shell) et (X)HTML </h3>
+		
+		<a href="tp1.pdf" target="_blank"> Ouvrir pdf </a>		
+
+	</header>
+
+	<div> 
+		<ul>
+			<li style="list-style: none"> 
+				<ol class="table-matiere">
+					<li> <a href="#partie1">SHELL</a> </li>
+					<li> <a href="#partie2">(X)HTML</a>
+						<article class="table-matiere-content"> 
+							<a href="pp.html"> pp.html </a>
+							<a href="table.html"> table.html </a>
+						</article>
+					</li>
+				</ol>
+			</li>
+		</ul>
+
+	</div>
+
+	<p class="title" id="partie1"> Première partie : SHELL </p>
+
+	<ol>
+		<li class="question"> Taper "tree". Qu'est-ce que cela affiche ? </li> 
+		<p class="answer"> Elle affiche l'arborescence des dossiers et fichiers avec comme racine le répertoire actuel. </p>
+
+		<li class="question"> A quoi servent les options -d et -a ? </li> 
+		<p class="answer"> "-d" : Effectue la commande uniquement sur les dossiers. </p>
+		<p class="answer"> "-a" : Effectue la commande sur tous les éléments (dossiers, fichiers et fichiers cachés). </p>
+
+		<li class="question"> "cd public_html/TP1" puis "pwd". A quoi sert la première commande ? </li> 
+		<p class="answer"> Permet se déplacer jusqu'au dossier TP1. </p>
+
+		<li class="question"> A quoi ".." fait-il référence ? </li> 
+		<p class="answer"> ".." fait référence au dossier parent </p>
+
+		<li class="question"> A quoi sert l'instruction "ls" ? </li> 
+		<p class="answer"> Affiche une liste des dossiers et fichiers présents dans le répertoire actuel. </p>
+
+		<li class="question"> Taper la commande suivante : "for lettre in {a..e}; do for annee in {2010..2015}; do mkdir "archive$lettre$annee" ; done; done". Qu'avez-vous fait ? </li> 
+		<p class="answer"> Pour chaque combinaison "lettreannee" ( a2010, a2011, [...], e2014, e2015 ), la commande à créé un dossier "archiveLETTREANNEE" ( Il nous aurait fallu BEAUCOUP plus de temps pour le faire en interface graphique ). </p>
+
+		<li class="question"> Résoudre le problème en remplaçant, dans la ligne précédente, la commande mkdir par celle qui permet de supprimer un dossier. </li> 
+		<p class="answer"> Pour réparer la précédente action, remplacer "mkdir" par "rmdir" </p>
+
+		<li class="question"> Quelle commande faut-il taper pour retrouver un fichier commençant par la lettre "a" et n'ayant pas la lettre "e" ? </li> 
+		<p class="answer"> find ~ -name a*.* | grep -v e </p>
+
+		<li class="question"> Depuis votre Home, taper "ls -a" puis "ls -a | more". A quoi sert la partie qui suit le pipe ? </li> 
+		<p class="answer"> La commande more est un filtre pour la pagination. Elle permet un affichage page par page du résultat de la commande exécuté à gauche du pipe </p>
+
+	</ol>
+
+	<p class="title" id="partie2"> Deuxième partie : (X)HTML </p>
+
+<!-- 	<p class="information"> <span style="color:yellow; font-size:150%"> [ Information ] </span> Les fichiers lié à cette partie sont disponible dans <a href="#annexe">l'annexe</a> </p> -->
+
+
+	<br>
+
+	<ol> <h2> Les Questions :</h2>
+		<li class="question"> Remarquez la casse (majuscule ou minuscule) des différentes balises (head et body, par exemple): cette casse a-t-elle une importance? </li> 
+		<p class="answer"> Dans les balises la casse n'a pas d'importance car le langage HTML est permissif. </p>
+
+		<li class="question"> Où retrouve-t-on ce qui est inscrit entre les marqueurs &lttitle&gt et &lt/title&gt ? </li> 
+		<p class="answer"> Ce qui est écrit entre ces balises est le nom d'onglet du navigateur. </p>
+
+		<li class="question"> Quel est l'effet du marqueur &ltbr>? </li> 
+		<p class="answer"> Le marqueur &ltbr&gt sert à ajouter un saut de ligne. </p>
+
+		<li class="question"> Que trouve-t-on à l'intérieur du marqueur &lt!....&gt ? </li> 
+		<p class="answer"> On peut mettre un commentaire affiché uniquement dans l'éditeur de texte. </p>
+
+		<li class="question"> À quoi correspond "&ampcopy;"? </li> 
+		<p class="answer"> Afficher le logo copyright </p>
+
+		<li class="question"> Enle-ver les marqueurs fermants &lt/html&gt, &lt/body&gt et &lt/head&gt : quel est l'effet de cette suppression sur l'affichage par le navigateur ? </li> 
+		<p class="answer"> L'affichage par le navigateur est inchangé. </p>
+
+		<li class="question"> Enlever les marqueurs ouvrants correspondants aux marqueurs fermants précédents : cela change-t-il l'affichage de la page sur le navigateur ? </li> 
+		<p class="answer"> L'affichage par le navigateur est inchangé. </p>
+
+		<li class="question"> Enlever à présent le marqueur &lt/h2&gt : comment l'affichage est-il modifié ? Jusqu'où s'étend cette modification ? </li> 
+		<p class="answer"> L'affichage est modifié en h2 de la balise ouvrante à la fin de la page. </p>
+
+		<li class="question"> À quelle structure correspond le marqueur &ltp&gt ? </li> 
+		<p class="answer"> Ce marqueur correspond à un paragraphe. </p>
+
+		<li class="question"> Que remarquez-vous pour cette balise ? </li> 
+		<p class="answer"> Elle saute une ligne avant de s'afficher et fait sauter une ligne a ce qui le précède </p>
+
+		<li class="question"> Modifier avec la souris la largeur de la fenêtre du navigateur : que constatez-vous ? </li> 
+		<p class="answer"> Les longs paragraphes sans retour à la ligne sont réglés en longueur par la largeur de la fenêtre de l'afficheur. </p>
+
+		<li class="question"> Quelle est, par défaut, la largeur du tableau ? </li> 
+		<p class="answer"> Elle est celle qu'on donne par ce que l'on écrit dedans plus les espaces bordure-contenu plus les bordures. </p>
+
+		<li class="question"> Que se passe-t-il si on impose une largeur de 120% ou de 25% ? </li> 
+		<p class="answer"> Si on met width="120%", le tableau fera 120% de la largeur de la page et dépassera. <br> Si on met width=25%, le tableau fera 25% de la largeur de la page du navigateur.
+		</p>
+
+		<li class="question"> Quelles sont les deux caractéristiques du contenu des cases th ? </li> 
+		<p class="answer"> Le contenu des cases th sont les titres des colonnes de notre tableau, de plus elles sont automatiquement centré et mise en gras </p>
+
+		<li class="question"> Que se passe-t-il si on enlève les caractères &ampnbsp; dans la première case du tableau ? À quoi correspondent-ils ? </li> 
+		<p class="answer"> On se voit pas de différence lorsque l'on enlève les caractères &ampnbsp; car ils correspondent à l'entité html de l'espace. </p>
+
+
+	</ol>
+
+	<footer id="footer"> 
+
+		<a href="mailto:thomas.canta@etu.umontpellier.fr" id="content"> Me contacter </a>
+		<p id="content"> CANTA Thomas &copy | Informatique - Gr B </p>
+		<a href="#header" id="content"> Revenir en haut </a>
+
+	</footer>
+
+</body>
+
+</html>

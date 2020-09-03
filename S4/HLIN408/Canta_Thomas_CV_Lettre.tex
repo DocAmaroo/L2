@@ -1,0 +1,86 @@
+%--------------------------------------------------------------
+% auteur : Canta Thomas
+%--------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+%--------------------------------------------------------------
+% PACKAGE
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[scale=0.75]{geometry}
+
+%--------------------------------------------------------------
+% MODERN CV STYLE
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+%--------------------------------------------------------------
+% MES COULEURS
+\definecolor{myred}{HTML}{ED0C53}
+
+%--------------------------------------------------------------
+% NOUVELLES COMMANDES
+\newcommand{\tab}{\hspace{10mm}} % Tabulation
+\newcommand{\mystar}{\LARGE{{\color{red}$\star$}} \vspace{0.5mm}} % Les étoiles
+%--------------------------------------------------------------
+% En-tête CV
+\name{Thomas}{Canta}
+\address{Le Guilhem, 41 avenue Guillaume Pellicier}{34270}{S\up{t} Mathieu de Tréviers}
+\phone[mobile]{0000000000}
+\email{thomas.canta@etu.umontpellier.fr}
+\date{\today}
+
+%--------------------------------------------------------------
+% DEBUT DU CV
+\begin{document}
+
+\makecvtitle
+
+\centering{{\color{myred}\rule{0.9\textwidth}{1pt}}} \vspace{10mm}
+
+\section{Education}
+\cventry{En cours $\bowtie$}{Licence}{Faculté des Sciences}{Montpellier}{\textit{Informatique}}{Acquisition en cours d'une licence d'informatique}
+\cventry{2015--2016}{Baccalauréat}{Lycée Jean Jaurès}{Saint Clément de Rivières}{\textit{Terminale}}{Obtention de Baccalauréat Scientifique}
+
+\section{Experience}
+\cventry{Mai/Aout 2018}{Manoeuvre}{Agence d'intérim : SkillJob}{S\up{t} Mathieu de Tréviers}{}{Se charge de nettoyer des surfaces de terrains et de procéder à des destructions. Il évide et rebouche des trous et des tranchées. Sa mission consiste aussi à apprêter les outils et les équipements utiles à la construction.}
+\cventry{Juin/Aout 2017}{Manoeuvre}{Agence d'intérim : SkillJob}{S\up{t} Mathieu de Tréviers}{}{idem}
+\cventry{Juin/Aout 2016}{Manoeuvre}{Agence d'intérim : Mission Intérim}{S\up{t} Mathieu de Tréviers}{}{idem}
+
+\section{Langue} 
+\cvitemwithcomment{Français}{Langue naturel \hspace{3mm} \mystar\mystar\mystar\mystar\mystar}{}
+\cvitemwithcomment{Anglais}{Niveau C1 \hspace{15.35mm} \mystar\mystar\mystar\mystar}{}
+\cvitemwithcomment{Espagnol}{Niveau A2 \hspace{20.3mm} \mystar\mystar\mystar}{}
+
+\section{Langage de programmation}
+\cvitemwithcomment{HTML/CSS}{\LARGE{{\color{red} \mystar\mystar\mystar\mystar\mystar}}}{}
+\cvitemwithcomment{C++/C}{\hspace{8.7mm} \mystar\mystar\mystar}{}
+\cvitemwithcomment{Python}{\hspace{8.7mm} \mystar\mystar\mystar}{}
+
+\section{Hobbies}
+\cvitem{Jeu vidéo}{Les jeux vidéos est un moyen de s'échapper un certain temps de la pression}
+\cvitem{Musique}{La musique est l'un des meilleurs moyen personnel pour me relaxer}
+\cvitem{Informatique}{Bidoullier, réparer, optimiser un matérielle informatique est ma passion}
+
+%--------------------------------------------------------------
+% FIN CV
+\clearpage
+
+%--------------------------------------------------------------
+% Lettre de motivation
+
+\recipient{Université de Montpellier}{Faculté des Sciences, Place Eugène Bataillon \\ Entrée Rue du Truel \\ 34095 Montpellier}
+\date{\today}
+\opening{\tab Bonjour Monsieur, Madame,}
+\closing{\tab Bien cordialement,}
+
+\makelettertitle
+
+\tab L’informatique est vite devenue une passion par rapport  à toutes les possibilités qu’elle propose. J’ai commencer dès mon année de première à apprendre la programmation notamment Python et Bash, et j’ai pris plaisir à « jouer » à ce casse-tête qui nous pousse à finir ce que l’on a commencé. \par \vspace{5mm}
+
+\tab Motivé, ambitieux et très curieux j’ai décidé de commencer à me perfectionner en suivant une spécialisation ISN pendant ma Terminal puis une Licence Informatique à la Faculté des Sciences de Montpellier. De part les enseignements et mes connaissances, cela m’a déjà permis de les mettre à profits.
+De ce fait, intégrer un master d'informatique m’apporterai l’enseignement et le savoir nécessaire pour devenir un jour informaticien.
+
+\makeletterclosing
+\end{document}

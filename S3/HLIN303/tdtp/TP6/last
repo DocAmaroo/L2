@@ -1,0 +1,23 @@
+tcanta   tty7         :0               Fri Dec  7 16:16    gone - no logout
+llozanoc tty7         :0               Fri Dec  7 11:31 - 14:50  (03:19)
+jbyram   tty7         :0               Fri Dec  7 09:34 - 11:02  (01:28)
+afilloux tty7         :0               Thu Dec  6 17:09 - 18:17  (01:08)
+afilloux tty7         :0               Thu Dec  6 17:05 - 17:08  (00:02)
+emeeuwen tty7         :0               Thu Dec  6 14:10 - 14:58  (00:48)
+amingass tty7         :0               Thu Dec  6 12:43 - 13:47  (01:04)
+reboot   system boot  4.15.0-42-generi Thu Dec  6 12:38   still running
+uakimger tty7         :0               Thu Dec  6 08:02 - 11:06  (03:04)
+reboot   system boot  4.15.0-42-generi Wed Dec  5 12:03 - 11:06  (23:03)
+lmaachou tty7         :0               Wed Dec  5 11:51 - 11:59  (00:08)
+reboot   system boot  4.15.0-42-generi Wed Dec  5 12:50 - 11:59  (-00:50)
+reboot   system boot  4.15.0-42-generi Tue Dec  4 14:52 - 14:56  (00:04)
+root     pts/0        162.38.151.26    Tue Dec  4 14:50 - 14:50  (00:00)
+reboot   system boot  4.15.0-42-generi Tue Dec  4 14:49 - 14:51  (00:01)
+amingass tty7         :0               Tue Dec  4 13:21 - 14:32  (01:11)
+reboot   system boot  4.15.0-42-generi Tue Dec  4 09:59 - 14:32  (04:32)
+reboot   system boot  4.15.0-42-generi Tue Dec  4 09:22 - 09:59  (00:36)
+mvidal04 tty7         :0               Tue Dec  4 09:14 - 09:22  (00:07)
+reboot   system boot  4.15.0-42-generi Tue Dec  4 09:12 - 09:22  (00:09)
+reboot   system boot  4.15.0-42-generi Mon Dec  3 17:43 - 09:11  (15:28)
+
+wtmp commence Mon Dec  3 17:43:05 2018
