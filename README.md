@@ -6,21 +6,15 @@
 </p>
 
 <ul> 
-	<li> HLIN401 - Algorithme et complexité (c++) </li>
-	<li> HLIN402 - Logique 1 (scheme) </li>
-	<li> HLIN403 - Programmation Applicative (scheme) </li>
-	<li> HLIN406 - Programmation par objet (java) </li>
-	<li> HLIN408 - Technique de communication </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN401"> 
+	HLIN401 - Algorithme et complexité (c++) </a> </li>
+	<li>  </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN402"> 
+	HLIN402 - Logique 1 (scheme) </a> </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN403"> 
+	HLIN403 - Programmation Applicative (scheme) </a> </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN406"> 
+	HLIN406 - Programmation par objet (java) </a> </li>
+	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN408"> 
+	HLIN408 - Technique de communication </a> </li>
 </ul>
-
-# Les commandes git que t'oublie tout le temps
-
-```bash
-git config --global user.name "[name]"
-git config --global user.email "[adresse]"
-```
-
-# Grub problem loading module
-```shell
-sudo /usr/lib/systemd/systemd-modules-load
-```
