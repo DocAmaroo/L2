@@ -8,7 +8,6 @@
 <ul> 
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN301"> 
 	HLIN301 - Algorithmique et structures de données linéaires </a> </li>
-	<li>  </li>
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN302"> 
 	HLIN302 - Programmation Impérative Avancée </a> </li>
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S3/HLIN303"> 
@@ -24,7 +23,6 @@
 <ul> 
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN401"> 
 	HLIN401 - Algorithme et complexité (c++) </a> </li>
-	<li>  </li>
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN402"> 
 	HLIN402 - Logique 1 (scheme) </a> </li>
 	<li> <a href="https://github.com/DocAmaroo/L2/tree/master/S4/HLIN403"> 
